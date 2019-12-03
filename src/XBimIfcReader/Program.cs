@@ -15,13 +15,18 @@ namespace ConsoleApp7
         {
             const string file = @"spaces_all.ifc";
             var model = IfcStore.Open(file);
+
             var ifcProject = model.FederatedInstances.OfType<IfcProject>().FirstOrDefault();
+
             
-            // print buildings, storeys, spaces...
+            // print buildings, site, storeys, spaces...
             Console.WriteLine("Buildings: " + ifcProject.Buildings.Count());
             var building = ifcProject.Buildings.FirstOrDefault();
             Console.WriteLine("description: " + building.BuildingAddress.Description);
             var storeys = building.BuildingStoreys;
+            var site = ifcProject.Sites.FirstOrDefault();
+            Console.WriteLine("Location: " + site.RefLongitude.Value.AsDouble + ", " + site.RefLatitude.Value.AsDouble);
+
             Console.WriteLine("storeys: " + storeys.Count());
             foreach(var storey in storeys)
             {
