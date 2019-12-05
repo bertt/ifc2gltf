@@ -8,7 +8,6 @@ using System.Linq;
 using Xbim.Ifc4.Kernel;
 using SharpGLTF.Geometry;
 using VERTEX = SharpGLTF.Geometry.VertexTypes.VertexPosition;
-using System.Threading;
 using SharpGLTF.Materials;
 using System.Numerics;
 using System.Diagnostics;
@@ -21,7 +20,6 @@ namespace ConsoleApp7
         {
             const string file = @"spaces_all.ifc";
             var model = IfcStore.Open(file);
-
             // PrintSemantics(model);
 
             // read geometries...
