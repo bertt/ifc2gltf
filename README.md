@@ -4,7 +4,7 @@ Experimental tool, converts from IFC geometries to glTF 2.0
 
 ## Parameters
 
--i : input file (todo)
+-i : input file
 
 -o : output file
 
