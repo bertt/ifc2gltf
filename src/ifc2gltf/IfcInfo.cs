@@ -29,6 +29,5 @@ namespace ifc2gltf
                 }
             }
         }
-
     }
 }

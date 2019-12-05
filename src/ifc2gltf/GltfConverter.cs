@@ -11,7 +11,6 @@ using Xbim.Ifc;
 using Xbim.ModelGeometry.Scene;
 using VERTEX = SharpGLTF.Geometry.VertexTypes.VertexPosition;
 
-
 namespace ifc2gltf
 {
     public static class GltfConverter
@@ -34,31 +33,26 @@ namespace ifc2gltf
             {
                 var data = ((IXbimShapeGeometryData)geom).ShapeData;
 
-                using (var stream = new MemoryStream(data))
+                using var stream = new MemoryStream(data);
+                using var reader = new BinaryReader(stream);
+                var meshBim = reader.ReadShapeTriangulation();
+
+                foreach (var face in meshBim.Faces)
                 {
-                    using (var reader = new BinaryReader(stream))
+                    var indeces = face.Indices;
+
+                    for (var triangle = 0; triangle < face.TriangleCount; triangle++)
                     {
-                        var meshBim = reader.ReadShapeTriangulation();
-                        // Console.WriteLine("Faces: " + meshBim.Faces.Count + " vertices: " + meshBim.Vertices.Count);
+                        var start = triangle * 3;
+                        var p0 = meshBim.Vertices[indeces[start]];
+                        var p1 = meshBim.Vertices[indeces[start + 1]];
+                        var p2 = meshBim.Vertices[indeces[start + 2]];
 
-                        foreach (var face in meshBim.Faces)
-                        {
-                            var indeces = face.Indices;
-
-                            for (var triangle = 0; triangle < face.TriangleCount; triangle++)
-                            {
-                                var start = triangle * 3;
-                                var p0 = meshBim.Vertices[indeces[start]];
-                                var p1 = meshBim.Vertices[indeces[start + 1]];
-                                var p2 = meshBim.Vertices[indeces[start + 2]];
-
-                                var prim = mesh.UsePrimitive(material1);
-                                prim.AddTriangle(
-                                    new VERTEX((float)p0.X, (float)p0.Y, (float)p0.Z * 10),
-                                    new VERTEX((float)p1.X, (float)p1.Y, (float)p1.Z * 10),
-                                    new VERTEX((float)p2.X, (float)p2.Y, (float)p2.Z * 10));
-                            }
-                        }
+                        var prim = mesh.UsePrimitive(material1);
+                        prim.AddTriangle(
+                            new VERTEX((float)p0.X, (float)p0.Y, (float)p0.Z * 10),
+                            new VERTEX((float)p1.X, (float)p1.Y, (float)p1.Z * 10),
+                            new VERTEX((float)p2.X, (float)p2.Y, (float)p2.Z * 10));
                     }
                 }
             }
@@ -67,6 +61,5 @@ namespace ifc2gltf
             scene.AddMesh(mesh, Matrix4x4.Identity);
             return scene;
         }
-
     }
 }

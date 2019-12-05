@@ -9,7 +9,5 @@ namespace ifc2gltf
 
         [Option('o', "output", Required = false, HelpText = "Output file")]
         public string Output { get; set; }
-
-
     }
 }
