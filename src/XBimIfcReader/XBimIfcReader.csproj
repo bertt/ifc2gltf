@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SharpGLTF.Toolkit" Version="1.0.0-alpha0014" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0-preview3.19551.4" />
     <PackageReference Include="Xbim.Essentials" Version="5.1.274" />
     <PackageReference Include="Xbim.Geometry" Version="5.1.288" />
