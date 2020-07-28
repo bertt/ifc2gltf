@@ -57,8 +57,9 @@ namespace ifc2gltf
                 }
             }
 
+
             var scene = new SceneBuilder();
-            scene.AddMesh(mesh, Matrix4x4.Identity);
+            scene.AddRigidMesh(mesh, Matrix4x4.Identity);
             return scene;
         }
     }

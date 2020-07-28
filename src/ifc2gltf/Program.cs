@@ -28,7 +28,7 @@ namespace ifc2gltf
                 stopwatch.Start();
                 Console.WriteLine("Start converting to glTF...");
                 var scene = GltfConverter.ToGltf(model);
-                var gltfmodel = scene.ToSchema2();
+                var gltfmodel = scene.ToGltf2();
                 gltfmodel.SaveGLB(o.Output);
                 stopwatch.Stop();
                 Console.WriteLine("Converting to glTF finished.");
