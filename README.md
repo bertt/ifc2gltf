@@ -24,6 +24,8 @@ Elapsed: 00:00:07.5423802
 
 ## Results
 
+(for file seee results folder)
+
 First case: wall.ifc:
 
 <img src= "wall_ifc.png"/>
