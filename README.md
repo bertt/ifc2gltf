@@ -11,16 +11,26 @@ Experimental tool, converts from IFC geometries to glTF 2.0
 Sample:
 
 ```
-$ ifc2gltf -i spaces_all.ifc -o spaces_all.glb
+$ ifc2gltf -i wall.ifc -o wall.glb
 
 tool ifc2gltf
-Input file: spaces_all.ifc
-Output file: spaces_all.glb
+Input file: wall.ifc
+Output file: wall.glb
 Start converting to glTF...
 Number of geometries: 2507
 Converting to glTF finished.
 Elapsed: 00:00:07.5423802
 ```
+
+## Results
+
+First case: wall.ifc:
+
+<img src= "wall_ifc.png"/>
+
+Converted to glb:
+
+<img src= "wall_glb.png"/>
 
 ## Dependencies
 

@@ -50,9 +50,9 @@ namespace ifc2gltf
 
                         var prim = mesh.UsePrimitive(material1);
                         prim.AddTriangle(
-                            new VERTEX((float)p0.X, (float)p0.Y, (float)p0.Z * 10),
-                            new VERTEX((float)p1.X, (float)p1.Y, (float)p1.Z * 10),
-                            new VERTEX((float)p2.X, (float)p2.Y, (float)p2.Z * 10));
+                            new VERTEX((float)p0.X, (float)p0.Z, (float)p0.Y),
+                            new VERTEX((float)p1.X, (float)p1.Z, (float)p1.Y),
+                            new VERTEX((float)p2.X, (float)p2.Z, (float)p2.Y));
                     }
                 }
             }

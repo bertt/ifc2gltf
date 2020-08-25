@@ -10,7 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{356FDD3C-CE8
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ifc2gltf.tests", "ifc2gltf.tests\ifc2gltf.tests.csproj", "{A22B53C9-9EDB-4434-AE79-363A04D1BA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ifc2gltf.tests", "ifc2gltf.tests\ifc2gltf.tests.csproj", "{A22B53C9-9EDB-4434-AE79-363A04D1BA51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "results", "results", "{9F5F07E8-176E-46BD-992A-F5687F74D54A}"
+	ProjectSection(SolutionItems) = preProject
+		ifc2gltf\bin\Debug\netcoreapp3.0\wall.glb = ifc2gltf\bin\Debug\netcoreapp3.0\wall.glb
+		ifc2gltf\wall.ifc = ifc2gltf\wall.ifc
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
